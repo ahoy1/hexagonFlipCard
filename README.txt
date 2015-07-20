@@ -1,3 +1,5 @@
-A Pen created at CodePen.io. You can find this one at http://codepen.io/ahoy/pen/jPpYaB.
+VaynerMedia Homework #3 - hexagon flip card in CSS
+
+demo at http://codepen.io/ahoy/pen/jPpYaB.
 
  
