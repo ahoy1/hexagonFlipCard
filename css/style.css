@@ -1,0 +1,152 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+body {
+  background-color: #bbdefb;
+}
+.card-container {
+  position: relative;
+  -webkit-perspective: 1000;
+          perspective: 1000;
+  margin: 25px auto;
+  width: 300px;
+}
+.card-container .card {
+  position: absolute;
+  width: 300px;
+  height: 347px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #212121;
+  cursor: pointer;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 1s;
+          transition: transform 1s;
+  /*FF bug fix - applying backface-visibility on the .card
+    element makes .hexagon behave properly when rotated*/
+  -moz-backface-visibility: hidden;
+}
+.card-container .card.flipped {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.card-container .card.flipped .front {
+  z-index: 2;
+}
+.card-container .card.flipped .back {
+  z-index: 3;
+}
+.hexagon {
+  position: absolute;
+  width: 300px;
+  height: 173.21px;
+  background-color: #2196f3;
+  margin: 86.60px 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
+  z-index: 3;
+}
+.hexagon:hover {
+  -webkit-transform: translateY(-3px);
+      -ms-transform: translateY(-3px);
+          transform: translateY(-3px);
+}
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 212.13px;
+  height: 212.13px;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+      -ms-transform: scaleY(0.5774) rotate(-45deg);
+          transform: scaleY(0.5774) rotate(-45deg);
+  background-color: inherit;
+  left: 43.9340px;
+}
+.hexagon:before {
+  top: -106.066px;
+}
+.hexagon:after {
+  bottom: -106.066px;
+}
+.hexagon.back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  background-color: #212121;
+  color: #b6b6b6;
+  z-index: 2;
+}
+.hexagon-inset {
+  position: absolute;
+  right: 0;
+  bottom: -87px;
+  width: 100px;
+  height: 57.74px;
+  background-color: #4caf50;
+  margin: 28.87px 0;
+  z-index: 4;
+}
+.hexagon-inset:before,
+.hexagon-inset:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+}
+.hexagon-inset:before {
+  bottom: 100%;
+  border-bottom: 28.87px solid #4caf50;
+}
+.hexagon-inset:after {
+  top: 100%;
+  width: 0;
+  border-top: 28.87px solid #4caf50;
+}
+.hexagon-inset .card-content {
+  margin-top: -30px;
+  height: 115px;
+}
+.card-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.card-content img {
+  max-width: 90%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -45px;
+  margin-left: -45px;
+}
+.card-content a {
+  display: block;
+  font-size: 22px;
+  line-height: 1.5em;
+  color: #b6b6b6;
+  text-decoration: none;
+}
+.card-content a:hover {
+  color: #bbdefb;
+}
+.see-more {
+  position: absolute;
+  bottom: -75px;
+  left: 150px;
+  margin-left: -14px;
+  font-size: 28px;
+  z-index: 2;
+  -webkit-transition: color 0.2s, -webkit-transform 0.5s;
+          transition: color 0.2s, transform 0.5s;
+}
+.card:hover .see-more {
+  color: #ffffff;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
